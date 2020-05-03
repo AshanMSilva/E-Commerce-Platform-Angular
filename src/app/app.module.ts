@@ -10,6 +10,13 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TopCategoryComponent } from './pages/top-category/top-category.component';
 import { TopproductComponent } from './pages/topproduct/topproduct.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProductComponent } from './pages/product/product.component';
+import { AccountComponent } from './pages/account/account.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -20,12 +27,17 @@ import { TopproductComponent } from './pages/topproduct/topproduct.component';
     LoginComponent,
     FooterComponent,
     TopCategoryComponent,
-    TopproductComponent
+    TopproductComponent,
+    CartComponent,
+    ProductComponent,
+    AccountComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
