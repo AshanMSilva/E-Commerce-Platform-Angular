@@ -4,7 +4,7 @@
     top: 0; /* Stay on top */
     width: 100%; /* Full width */
     transition: top 0.3s; /* Transition effect when sliding down (and up) */
-    z-index: 10000;
+    z-index: 100;
   }
   
   /* Style the navbar links */
@@ -108,4 +108,8 @@
         margin-left: 30px;
     }
     
+}
+.loginmodal{
+    z-index: 2000;
+    margin-top: 300px;
 }
