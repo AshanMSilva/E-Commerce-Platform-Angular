@@ -1,0 +1,111 @@
+#navbar {
+    background-color: rgb(30, 4, 65) !important; /* Black background color */
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    width: 100%; /* Full width */
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+    z-index: 10000;
+  }
+  
+  /* Style the navbar links */
+  #navbar a {
+    float: left;
+    display: block;
+    color: rgb(215, 210, 240);
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+  }
+  
+  #navbar a:hover {
+    background-color: rgb(30, 4, 65);
+    color: rgb(124, 134, 223);
+  }
+  .nav-toggler-button{
+    color: rgb(215, 210, 240); 
+    border-color:  rgb(215, 210, 240) ;
+  }
+  
+  @media (max-width:301px){
+    .search-bar{
+        width: 100px;
+       
+    }
+    
+  }
+  @media (min-width:302px) and (max-width:399px){
+    .search-bar{
+        width: 130px;
+       
+    }
+    
+  }
+  
+  @media (min-width:400px) and (max-width:499px){
+    .search-bar{
+        width: 200px;
+       
+    }
+    
+  }
+  
+  @media (min-width:500px) and (max-width:575px){
+    .search-bar{
+        width: 250px;
+       
+    }
+    
+  }
+  
+  @media (min-width:576px) and (max-width:767px){
+      .search-bar{
+          width: 350px;;
+      }
+  }
+  @media (min-width:768px) and (max-width:991px){
+      .search-bar{
+          width: 550px;;
+      }
+  }
+  @media (min-width:992px) and (max-width:1023px){
+    .search-bar{
+        width: 100px;;
+    }
+}
+  @media (min-width:1024px) and (max-width:1109px){
+      .search-bar{
+          width: 100px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+  }
+@media (min-width:1110px) and (max-width:1199px){
+    .search-bar{
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+@media (min-width:1200px) and (max-width:1300px){
+    .search-bar{
+        width: 260px;
+        margin-left: 30px;
+    }
+    
+}
+@media (min-width:1301px) and (max-width:1500px){
+    .search-bar{
+        width: 350px;
+        margin-left: 30px;
+    }
+    
+}
+@media (min-width:1501px){
+    .search-bar{
+        width: 550px;
+        margin-left: 30px;
+    }
+    
+}
