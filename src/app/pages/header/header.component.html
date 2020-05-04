@@ -82,7 +82,7 @@
               <a href="" class="text-muted">Forgot Password?</a>
             </div>
             <div class="col-12 col-md-6 mr-0">
-              <a href="" class="text-muted">Don't have an Account?</a>
+              <a (click)="open(registercontent, 'lg'); modal.dismiss()" class="text-muted">Don't have an Account?</a>
             </div>
           </div>
           
@@ -206,7 +206,7 @@
               
             </div>
             <div class="col-12 col-md-6 mr-0">
-              <a href="" class="text-muted form-muted-link">Already have an Account?</a>
+              <a (click)="open(logincontent, 'md'); modal.dismiss()" class="text-muted form-muted-link">Already have an Account?</a>
             </div>
           </div>
           
