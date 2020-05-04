@@ -36,13 +36,13 @@
       </form>
       <ul class="navbar-nav align-items-lg-center ml-md-auto">
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" (click)="open(content)">
+          <a class="nav-link nav-link-icon" (click)="open(logincontent, 'md')">
             <i class="fa fa-sign-in"></i>
             <span class="nav-link-inner--text"> Log In</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" [routerLink]="['/register']">
+          <a class="nav-link nav-link-icon" (click)="open(registercontent,'lg')">
             <!-- <i class="fa fa-sign-in"></i> -->
             <span class="nav-link-inner--text">Register</span>
           </a>
@@ -54,9 +54,9 @@
     
     
   </nav>
-    <ng-template #content let-modal>
+    <ng-template #logincontent let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Login</h4>
+        <h4 class="modal-title modal-header-font" id="modal-basic-title">Log In</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -65,18 +65,151 @@
         <form novalidate [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(); modal.dismiss()">
           
           <div class="form-group">
-            <label for="email"[ngStyle]="{'color':formErrors.email === '' ? 'green' : 'red' }">Email Address</label>
-            <input type="email"[ngStyle]="{'border-color':formErrors.email === '' ? 'green' : 'red' }" placeholder="Email Address" class="form-control" formControlName="email" required>
-            <p class="form-error" *ngIf="formErrors.email">{{formErrors.email}}</p>
+            <label for="email"[ngStyle]="{'color':loginFormErrors.email !== '' ? 'red !important': '' }" class="form-label">Email Address</label>
+            <input type="email"[ngStyle]="{'border-color':loginFormErrors.email !== '' ? 'red': '' }" placeholder="Email Address" class="form-control" formControlName="email" required>
+            <p class="form-error" *ngIf="loginFormErrors.email">{{loginFormErrors.email}}</p>
           </div>
           <div class="form-group">
-            <label for="password" [ngStyle]="{'color':formErrors.password === '' ? 'green' : 'red' }">Password</label>
-            <input type="password" [ngStyle]="{'border-color':formErrors.password === '' ? 'green' : 'red' }" placeholder="Password" class="form-control" formControlName="password" required>
-            <p class="form-error" *ngIf="formErrors.password">{{formErrors.password}}</p>
+            <label for="password" [ngStyle]="{'color':loginFormErrors.password !== '' ? 'red !important': '' }" class="form-label">Password</label>
+            <input type="password" [ngStyle]="{'border-color':loginFormErrors.password !== '' ? 'red': '' }" placeholder="Password" class="form-control" formControlName="password" required>
+            <p class="form-error" *ngIf="loginFormErrors.password">{{loginFormErrors.password}}</p>
           </div>
          
-          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="loginForm.invalid">Login</button>
+          <button type="submit" mat-button class="login-btn btn-block btn-lg" [disabled]="loginForm.invalid">Login</button>
         </form>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <a href="" class="text-muted">Forgot Password?</a>
+            </div>
+            <div class="col-12 col-md-6 mr-0">
+              <a href="" class="text-muted">Don't have an Account?</a>
+            </div>
+          </div>
+          
+        
+      </div>
+    </ng-template>
+
+    <ng-template #registercontent let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title modal-header-font" id="modal-basic-title">Sign Up</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form novalidate [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit(); modal.dismiss()">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="firstName"[ngStyle]="{'color':registerFormErrors.firstName !== '' ? 'red !important': '' }" class="form-label">First Name</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.firstName !== '' ? 'red': '' }" placeholder="First Name" class="form-control" pattern="[A-Za-z\s]{1,}" formControlName="firstName" required>
+                <p class="form-error" *ngIf="registerFormErrors.firstName">{{registerFormErrors.firstName}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="lastName"[ngStyle]="{'color':registerFormErrors.lastName !== '' ? 'red !important': '' }" class="form-label">Last Name</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.lastName !== '' ? 'red': '' }" placeholder="Last Name" class="form-control" pattern="[A-Za-z\s]{1,}" formControlName="lastName" required>
+                <p class="form-error" *ngIf="registerFormErrors.lastName">{{registerFormErrors.lastName}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <!-- <label for="email"[ngStyle]="{'color':registerFormErrors.email !== '' ? 'red !important': '' }" class="form-label">Email Address</label> -->
+                <input type="email"[ngStyle]="{'border-color':registerFormErrors.email !== '' ? 'red': '' }" placeholder="Email Address" class="form-control" formControlName="email" required>
+                <p class="form-error" *ngIf="registerFormErrors.email">{{registerFormErrors.email}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="password"[ngStyle]="{'color':registerFormErrors.password !== '' ? 'red !important': '' }" class="form-label">Password</label> -->
+                <input type="password"[ngStyle]="{'border-color':registerFormErrors.password !== '' ? 'red': '' }" placeholder="Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$@#!%*?&]).{6,20}" formControlName="password" required>
+                <p class="form-error" *ngIf="registerFormErrors.password">{{registerFormErrors.password}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="rePassword"[ngStyle]="{'color':registerFormErrors.rePassword !== '' ? 'red !important': '' }" class="form-label">Re-Password</label> -->
+                <input type="password"[ngStyle]="{'border-color':registerFormErrors.rePassword !== '' ? 'red': '' }" placeholder="Re-Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$@#!%*?&]).{6,20}" formControlName="rePassword" required>
+                <p class="form-error" *ngIf="registerFormErrors.rePassword">{{registerFormErrors.rePassword}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="contactOne"[ngStyle]="{'color':registerFormErrors.contactOne !== '' ? 'red !important': '' }" class="form-label">Contact Number</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.contactOne !== '' ? 'red': '' }" placeholder="Contact Number" class="form-control" pattern="[0-9]{10}" formControlName="contactOne" required>
+                <p class="form-error" *ngIf="registerFormErrors.contactOne">{{registerFormErrors.contactOne}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <!-- <label for="contactTwo"[ngStyle]="{'color':registerFormErrors.contactTwo !== '' ? 'red !important': '' }" class="form-label">Contact Number(Optional)</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.contactTwo !== '' ? 'red': '' }" placeholder="Contact Number(Optional)" class="form-control" pattern="[0-9]{10}" formControlName="contactTwo">
+                <p class="form-error" *ngIf="registerFormErrors.contactTwo">{{registerFormErrors.contactTwo}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <!-- <label for="houseNumber"[ngStyle]="{'color':registerFormErrors.houseNumber !== '' ? 'red !important': '' }" class="form-label">House Number</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.houseNumber !== '' ? 'red': '' }" placeholder="House Number" class="form-control" formControlName="houseNumber" required>
+                <p class="form-error" *ngIf="registerFormErrors.houseNumber">{{registerFormErrors.houseNumber}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <!-- <label for="firstStreet"[ngStyle]="{'color':registerFormErrors.firstStreet !== '' ? 'red !important': '' }" class="form-label">1st Street</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.firstStreet !== '' ? 'red': '' }" placeholder="1st Street" class="form-control" formControlName="firstStreet" required>
+                <p class="form-error" *ngIf="registerFormErrors.firstStreet">{{registerFormErrors.firstStreet}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <!-- <label for="city"[ngStyle]="{'color':registerFormErrors.city !== '' ? 'red !important': '' }" class="form-label">2nd Street/City</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.city !== '' ? 'red': '' }" placeholder="2nd Street/City" class="form-control" formControlName="city" required>
+                <p class="form-error" *ngIf="registerFormErrors.city">{{registerFormErrors.city}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <!-- <label for="state"[ngStyle]="{'color':registerFormErrors.state !== '' ? 'red !important': '' }" class="form-label">City/State</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.state !== '' ? 'red': '' }" placeholder="Ciy/State" class="form-control" formControlName="state" required>
+                <p class="form-error" *ngIf="registerFormErrors.state">{{registerFormErrors.state}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <!-- <label for="zipCode"[ngStyle]="{'color':registerFormErrors.zipCode !== '' ? 'red !important': '' }" class="form-label">Zip Code</label> -->
+                <input type="text"[ngStyle]="{'border-color':registerFormErrors.zipCode !== '' ? 'red': '' }" placeholder="zip Code" class="form-control" pattern="[0-9]{5}" formControlName="zipCode" required>
+                <p class="form-error" *ngIf="registerFormErrors.zipCode">{{registerFormErrors.zipCode}}</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+
+            </div>
+          </div>
+         
+          <button type="submit" mat-button class="login-btn btn-block btn-lg" [disabled]="registerForm.invalid">Sign Up</button>
+        </form>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              
+            </div>
+            <div class="col-12 col-md-6 mr-0">
+              <a href="" class="text-muted form-muted-link">Already have an Account?</a>
+            </div>
+          </div>
+          
         
       </div>
     </ng-template>
