@@ -6,5 +6,6 @@ export class Varient{
     price: number;
     availability: number;
     attributes:Attribute[];
+    sales: number;
 
 }

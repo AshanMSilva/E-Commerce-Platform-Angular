@@ -1,0 +1,25 @@
+.banner{
+    background-image: url('../../../assets/images/background.jpg');
+    height: 500px;
+}
+.page-title{
+    text-align: right;
+    padding-top: 300px;
+    font-size: 60px;
+}
+.profile-picture{
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
+  }
+.bank-card{
+    height: 150px;
+    border-radius: 10px;
+    
+}
+.card-number{
+    text-align: right;
+    margin-top: 70px;
+}

@@ -5,4 +5,5 @@ export class Category{
     name: string;
     subCategories: Category[];
     products:Product[];
+    topCategory: boolean;
 }

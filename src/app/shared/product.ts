@@ -5,5 +5,6 @@ export class Product {
     brand: string;
     name: string;
     varients:Varient[];
+    sales: number;
 
 }
