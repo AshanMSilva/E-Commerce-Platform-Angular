@@ -113,3 +113,16 @@
     z-index: 2000;
     margin-top: 300px;
 }
+.full-width{
+    width:95%
+}
+.half-width{
+    width:45%;
+}
+.form-size{
+    width:75%;
+}
+.form-error{
+    color: red;
+    font-size: smaller;
+}

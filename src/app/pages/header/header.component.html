@@ -56,26 +56,28 @@
   </nav>
     <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <h4 class="modal-title" id="modal-basic-title">Login</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form novalidate [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(); modal.dismiss()">
+          
           <div class="form-group">
-            <label for="dateOfBirth">Date of birth</label>
-            <div class="input-group">
-              <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-              </div>
-            </div>
+            <label for="email"[ngStyle]="{'color':formErrors.email === '' ? 'green' : 'red' }">Email Address</label>
+            <input type="email"[ngStyle]="{'border-color':formErrors.email === '' ? 'green' : 'red' }" placeholder="Email Address" class="form-control" formControlName="email" required>
+            <p class="form-error" *ngIf="formErrors.email">{{formErrors.email}}</p>
           </div>
+          <div class="form-group">
+            <label for="password" [ngStyle]="{'color':formErrors.password === '' ? 'green' : 'red' }">Password</label>
+            <input type="password" [ngStyle]="{'border-color':formErrors.password === '' ? 'green' : 'red' }" placeholder="Password" class="form-control" formControlName="password" required>
+            <p class="form-error" *ngIf="formErrors.password">{{formErrors.password}}</p>
+          </div>
+         
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="loginForm.invalid">Login</button>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        
       </div>
     </ng-template>
  
