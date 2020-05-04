@@ -36,15 +36,15 @@
       </form>
       <ul class="navbar-nav align-items-lg-center ml-md-auto">
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" (click)="open(logincontent, 'md')">
+          <a class="nav-link nav-link-icon form-link" (click)="open(logincontent, 'md')">
             <i class="fa fa-sign-in"></i>
             <span class="nav-link-inner--text"> Log In</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" (click)="open(registercontent,'lg')">
+          <a class="nav-link nav-link-icon form-link" (click)="open(registercontent,'lg')">
             <!-- <i class="fa fa-sign-in"></i> -->
-            <span class="nav-link-inner--text">Register</span>
+            <span class="nav-link-inner--text ">Register</span>
           </a>
         </li>
         </ul>
@@ -79,10 +79,10 @@
         </form>
           <div class="row">
             <div class="col-12 col-md-6">
-              <a href="" class="text-muted">Forgot Password?</a>
+              <a href="" class="text-muted form-link">Forgot Password?</a>
             </div>
             <div class="col-12 col-md-6 mr-0">
-              <a (click)="open(registercontent, 'lg'); modal.dismiss()" class="text-muted">Don't have an Account?</a>
+              <a (click)="open(registercontent, 'lg'); modal.dismiss()" class="text-muted form-link">Don't have an Account?</a>
             </div>
           </div>
           
@@ -206,7 +206,7 @@
               
             </div>
             <div class="col-12 col-md-6 mr-0">
-              <a (click)="open(logincontent, 'md'); modal.dismiss()" class="text-muted form-muted-link">Already have an Account?</a>
+              <a (click)="open(logincontent, 'md'); modal.dismiss()" class="text-muted form-muted-link form-link">Already have an Account?</a>
             </div>
           </div>
           

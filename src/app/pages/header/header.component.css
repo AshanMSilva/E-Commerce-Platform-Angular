@@ -146,3 +146,6 @@
 .form-muted-link{
     text-align: right;
 }
+.form-link{
+    cursor: pointer;
+}
