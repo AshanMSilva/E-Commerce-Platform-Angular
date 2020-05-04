@@ -19,6 +19,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderdetailsComponent } from './pages/orderdetails/orderdetails.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     CartComponent,
     ProductComponent,
     AccountComponent,
-    WishlistComponent
+    WishlistComponent,
+    OrdersComponent,
+    OrderdetailsComponent
   ],
   imports: [
     BrowserModule,
