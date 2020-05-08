@@ -22,6 +22,18 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderdetailsComponent } from './pages/orderdetails/orderdetails.component';
 import { CategoryProductsComponent } from './pages/category-products/category-products.component';
+import { CategoryService } from './services/categoryService/category.service';
+import { AuthGuardService } from './services/authGuradService/auth-guard.service';
+import { AuthService } from './services/authService/auth.service';
+import { ProcessHttpmsgService } from './services/processHttpmsgService/process-httpmsg.service';
+import { Customer } from './shared/customer';
+import { CustomerService } from './services/customerService/customer.service';
+import { OrderService } from './services/orderService/order.service';
+import { ProductService } from './services/productService/product.service';
+import { VarientService } from './services/varientService/varient.service';
+import { baseURL } from './shared/baseurl';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +63,27 @@ import { CategoryProductsComponent } from './pages/category-products/category-pr
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CategoryService,
+    AuthGuardService,
+    AuthService,
+    ProcessHttpmsgService,
+    CustomerService,
+    OrderService,
+    ProductService,
+    VarientService,
+    {provide: 'baseURL', useValue: baseURL},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
