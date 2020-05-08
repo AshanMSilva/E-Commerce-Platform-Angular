@@ -21,6 +21,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { OrdersComponent } from './pages/orders/orders.component';
 import { OrderdetailsComponent } from './pages/orderdetails/orderdetails.component';
+import { CategoryProductsComponent } from './pages/category-products/category-products.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { OrderdetailsComponent } from './pages/orderdetails/orderdetails.compone
     AccountComponent,
     WishlistComponent,
     OrdersComponent,
-    OrderdetailsComponent
+    OrderdetailsComponent,
+    CategoryProductsComponent
   ],
   imports: [
     BrowserModule,

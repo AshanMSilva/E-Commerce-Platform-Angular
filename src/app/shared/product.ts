@@ -4,6 +4,7 @@ export class Product {
     id: string;
     brand: string;
     name: string;
+    image: string;
     varients:Varient[];
     sales: number;
 
