@@ -7,5 +7,6 @@ export class Product {
     image: string;
     varients:Varient[];
     sales: number;
+    topProduct: boolean;
 
 }
