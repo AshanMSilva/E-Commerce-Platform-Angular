@@ -12,4 +12,5 @@ export class RegisteredCustomer extends Customer{
     orders: Order[];
     wishlist: Product[];
     cart: Item[];
+    cardNumbers: string[];
 }
