@@ -1,7 +1,7 @@
 import { Varient } from './varient';
 
 export class Product {
-    id: string;
+    _id: string;
     brand: string;
     name: string;
     image: string;

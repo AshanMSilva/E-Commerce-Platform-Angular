@@ -32,7 +32,7 @@ import { OrderService } from './services/orderService/order.service';
 import { ProductService } from './services/productService/product.service';
 import { VarientService } from './services/varientService/varient.service';
 import { baseURL } from './shared/baseurl';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
 
 @NgModule({
@@ -61,7 +61,8 @@ import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interc
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     CategoryService,

@@ -33,7 +33,7 @@ export class CategoryService {
       })
     };
 
-    return this.http.put<Category>(baseURL +'categories/'+category.id,category,httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
+    return this.http.put<Category>(baseURL +'categories/'+category._id,category,httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
   }
   addNewCategory(category: Category):Observable<Category>{
     const httpOptions ={

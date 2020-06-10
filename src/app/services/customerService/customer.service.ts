@@ -26,22 +26,22 @@ export class CustomerService {
    
   }
   
-  updateUser(user:RegisteredCustomer): Observable<RegisteredCustomer>{
+  updateUser(userId:any, body:any): Observable<RegisteredCustomer>{
     const httpOptions ={
       headers: new HttpHeaders({
         'Content-Type':'application/json'
       })
     };
 
-    return this.http.put<RegisteredCustomer>(baseURL +'users/'+user.id, user, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
+    return this.http.put<RegisteredCustomer>(baseURL +'users/'+userId, body, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
   }
-  addNewUser(user: RegisteredCustomer):Observable<RegisteredCustomer>{
+  addNewUser(user: any):Observable<RegisteredCustomer>{
     const httpOptions ={
       headers: new HttpHeaders({
         'Content-Type':'application/json'
       })
     };
-    return this.http.post<RegisteredCustomer>(baseURL+ 'users', user, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
+    return this.http.post<RegisteredCustomer>(baseURL+ 'users/signup', user, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
   }
   addNewAddress(id:number, address: Address):Observable<RegisteredCustomer>{
     const httpOptions ={
@@ -133,5 +133,9 @@ export class CustomerService {
 
   deleteUser(userId:number):Observable<any>{
     return this.http.delete<any>(baseURL+ 'users/'+userId).pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  getUserByEmail(email:string):Observable<RegisteredCustomer[]>{
+    return this.http.get<RegisteredCustomer[]>(baseURL+`users?email=${email}`).pipe(catchError(this.processHTTPMsgService.handleError));
+  
   }
 }

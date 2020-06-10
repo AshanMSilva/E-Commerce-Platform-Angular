@@ -30,7 +30,7 @@ export class VarientService {
       })
     };
 
-    return this.http.put<Varient>(baseURL +'varients/'+varient.id, varient, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
+    return this.http.put<Varient>(baseURL +'varients/'+varient._id, varient, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
   }
   addNewVarient(varient: Varient):Observable<Varient>{
     const httpOptions ={

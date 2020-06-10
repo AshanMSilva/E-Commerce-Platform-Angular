@@ -31,7 +31,7 @@ export class ProductService {
       })
     };
 
-    return this.http.put<Product>(baseURL +'products/'+product.id, product, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
+    return this.http.put<Product>(baseURL +'products/'+product._id, product, httpOptions).pipe(catchError(this.processHTTPMsgService.handleError));
   }
   addNewProduct(product: Product):Observable<Product>{
     const httpOptions ={
