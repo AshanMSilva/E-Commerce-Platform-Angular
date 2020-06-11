@@ -21,9 +21,7 @@ export class ProductService {
     return this.http.get<Product>(baseURL+'products/'+id).pipe(catchError(this.processHTTPMsgService.handleError));
    
   }
-  getTopProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(baseURL+'products?topProduct=true').pipe(map(products=>products)).pipe(catchError(this.processHTTPMsgService.handleError));
-  }
+  
   updateProduct(product:Product): Observable<Product>{
     const httpOptions ={
       headers: new HttpHeaders({

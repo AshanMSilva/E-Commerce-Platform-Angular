@@ -1,83 +1,13 @@
 <ngb-carousel >
     <ng-template ngbSlide>
         <h1 class="text-center mb-5">TOP PRODUCTS</h1>
-        <div class="row mb-3">
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
+        <div *ngIf="topProducts" class="row mb-3">
+            <div *ngFor="let topProduct of topProducts" class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="card" [routerLink]="['/product', topProduct._id]">
+                    <img src="{{productImageUrl+topProduct.image}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title">{{topProduct.brand}} {{topProduct.name}}</h5>
                       
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 d-none d-lg-block mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                     
-                    </div>
-                  </div>
-            </div>
-            <div class="col-6  col-md-4 col-lg-3 d-none d-lg-block mb-4">
-                <div class="card">
-                    <img src="../.../../assets/images/categories/electronics.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       
                     </div>
                   </div>

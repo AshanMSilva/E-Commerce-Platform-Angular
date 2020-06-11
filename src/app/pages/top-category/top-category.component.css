@@ -8,3 +8,7 @@ h1{
     font-style: italic;
     font-size: 40px;
 }
+.card-img{
+    height:200px;
+    width: auto;
+}

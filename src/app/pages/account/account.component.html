@@ -6,13 +6,13 @@
         
     </div>
     <div class="container">
-        <div class="row">
+        <div *ngIf="user" class="row">
             <div class="col-12 col-lg-9">
                 <div class="card">
                     <div class="card-header">
-                        <img src="../../../assets/images/profilePictures/19.jpg" alt="" class="profile-picture">
-                        <h2 class="card-title text-center">Ashan Silva</h2>
-                        <h4 class="csrd-subtitle text-muted text-center">ashan.silva.97.aj@gmail.com</h4>
+                        <img src="{{userImageUrl+user.image}}" alt="" class="profile-picture">
+                        <h2 class="card-title text-center">{{user.firstName}} {{user.lastName}}</h2>
+                        <h4 class="csrd-subtitle text-muted text-center">{{user.email}}</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -20,44 +20,18 @@
                                 <!-- <div class="card-header"> -->
                                     <h4 class="text-center">Addresses & Contacts</h4>
                                 <!-- </div> -->
-                                <div class="card-body row">
+                                <div *ngFor="let address of user.addresses; index as i" class="card-body row">
                                     <div class="col-6 col-lg-4">
                                         <div class="card mb-3">
                                             
                                             <div class="card-body">
-                                                <h6 class="text-center">Address 01</h6>
+                                                <h6 class="text-center">Address {{i+1}}</h6>
                                                 <p>
-                                                    370/6 <br>
-                                                    Polgahakottanuwa <br>
-                                                    Batakettara <br>
-                                                    Madapatha
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-lg-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6 class="text-center">Address 01</h6>
-                                                <p>
-                                                    370/6 <br>
-                                                    Polgahakottanuwa <br>
-                                                    Batakettara <br>
-                                                    Madapatha
-                                                </p>
-                                            </div>
-    
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-lg-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h6 class="text-center">Address 01</h6>
-                                                <p>
-                                                    370/6 <br>
-                                                    Polgahakottanuwa <br>
-                                                    Batakettara <br>
-                                                    Madapatha
+                                                    {{address.houseNumber}} <br>
+                                                    {{address.firstStreet}} <br>
+                                                    {{address.city}} <br>
+                                                    {{address.state}} <br>
+                                                    {{address.zipCode}}
                                                 </p>
                                             </div>
                                         </div>
@@ -66,7 +40,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h6 class="text-center">Contacts</h6>
-                                                <p><i class="fa fa-phone"></i> 0719385895</p>
+                                                <p *ngFor="let tel of user.contactNumbers "><i class="fa fa-phone"></i> {{tel}}</p>
                                             </div>
                                         </div>
                                     </div>

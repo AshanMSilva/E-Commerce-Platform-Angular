@@ -1,8 +1,16 @@
 <h1 class="text-center">TOP CATEGORIES</h1>
        <br>
        <br>
-       <div class="row mb-5">
-           <div class="col-12 col-md-6 col-lg-4">
+       <div *ngIf="topCategories" class="row mb-5">
+           <div *ngFor="let category of topCategories" class="col-12 col-md-6 col-lg-3">
+                <div class="card mb-4">
+                    <img src="{{categoryImageUrl+category.image}}" class="card-img" alt="">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title category-title">{{category.name}}</h5>
+                    </div>
+                </div>
+           </div>
+           <!-- <div class="col-12 col-md-6 col-lg-4">
                 <div class="card mb-4">
                     <img src="../../../assets/images/categories/electronics.jpg" class="card-img" alt="">
                     <div class="card-img-overlay">
@@ -41,14 +49,6 @@
                         <h5 class="card-title category-title">Card title</h5>
                     </div>
                 </div>
-           </div>
-           <div class="col-12 col-md-6 col-lg-4">
-                <div class="card mb-4">
-                    <img src="../../../assets/images/categories/electronics.jpg" class="card-img" alt="">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title category-title">Card title</h5>
-                    </div>
-                </div>
-           </div>
+           </div> -->
            
        </div>

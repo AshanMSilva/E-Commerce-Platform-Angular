@@ -4,6 +4,7 @@ import{FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { CustomerService } from 'src/app/services/customerService/customer.service';
 import { MailService } from 'src/app/services/mailService/mail.service';
 import { AuthService } from 'src/app/services/authService/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -111,7 +112,8 @@ export class HeaderComponent implements OnInit {
       private formBuilder: FormBuilder,
       private customerService: CustomerService,
       private mailService: MailService,
-      private authService: AuthService
+      private authService: AuthService,
+      private router:Router
     ) {}
 
   async ngOnInit(): Promise<void> {
@@ -424,6 +426,8 @@ export class HeaderComponent implements OnInit {
   logOut(){
     this.authService.logOut();
     this.loggedIn = this.authService.isLoggedIn();
+    this.router.navigate(['home']);
+    
     
   }
 
